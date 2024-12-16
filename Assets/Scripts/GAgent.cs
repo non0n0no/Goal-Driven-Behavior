@@ -31,7 +31,7 @@ public class GAgent : MonoBehaviour
     SubGoal currentGoal;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
 
         GAction[] acts = this.GetComponents<GAction>();
@@ -63,6 +63,7 @@ public class GAgent : MonoBehaviour
                     invoked = true;
                 }
             }
+            return;
         }
 
         if (planner == null || actionQueue == null)
@@ -80,6 +81,37 @@ public class GAgent : MonoBehaviour
                     currentGoal = sg.Key;
                     break;
                 }
+            }
+        }
+
+        if (actionQueue != null && actionQueue.Count == 0)
+        {
+            if (currentGoal.remove)
+            {
+                goals.Remove(currentGoal);
+            }
+            planner = null;
+        }
+
+        if (actionQueue != null && actionQueue.Count > 0)
+        {
+            currentAction = actionQueue.Dequeue();
+            if (currentAction.PrePerform())
+            {
+                if (currentAction.target == null && currentAction.targetTag != "")
+                {
+                    currentAction.target = GameObject.FindWithTag(currentAction.targetTag);
+                }
+
+                if (currentAction.targetTag != null)
+                {
+                    currentAction.running = true;
+                    currentAction.agent.SetDestination(currentAction.target.transform.position);
+                }
+            }
+            else
+            {
+                actionQueue = null;
             }
         }
     }
