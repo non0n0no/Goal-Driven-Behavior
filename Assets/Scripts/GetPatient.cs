@@ -1,27 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+public class GetPatient : GAction {
 
-public class GetPatient : GAction 
-{
     GameObject resource;
 
-    public override bool PrePerform() 
-    {
+    public override bool PrePerform() {
+
         target = GWorld.Instance.RemovePatient();
-        if(target == null)
-        {
-            return false;
-        }
+        if (target == null) return false;
 
         resource = GWorld.Instance.RemoveCubicle();
-        if(resource != null)
-        {
+        if (resource != null) {
+
             inventory.AddItem(resource);
-        }
-        else
-        {
-            GWorld.Instance.AddPatients(target);
+        } else {
+
+            GWorld.Instance.AddPatient(target);
             target = null;
             return false;
         }
@@ -30,13 +23,11 @@ public class GetPatient : GAction
         return true;
     }
 
-    public override bool PostPerform() 
-    {
+    public override bool PostPerform() {
+
         GWorld.Instance.GetWorld().ModifyState("Waiting", -1);
-        if(target)
-        {
-            target.GetComponent<GAgent>().inventory.AddItem(resource);
-        }
+        if (target) target.GetComponent<GAgent>().inventory.AddItem(resource);
+
         return true;
     }
 }
