@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 24
-  productGUID: bd7cceaa55287a046b1c5ab5754ae742
+  productGUID: 6f3ac3357e97e374dae488e459da24c1
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: GoalDrivenBehavior
+  productName: Goal Driven Behaviour
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -721,11 +721,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 92bdeba4-2c70-4a34-b6d7-d014989c70e3
+  cloudProjectId: ff75d742-2373-4603-bf10-98549f6f30d9
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: GoalDrivenBehavior
-  organizationId: nonoribeiro
+  projectName: Goal Driven Behaviour 2024-11-16_01-29-36
+  organizationId: argent-s-worlds-lab
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
